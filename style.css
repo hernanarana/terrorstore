@@ -1,0 +1,158 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* Estilos generales */
+body {
+  margin: 0;
+  background: #121212;
+  color: #ececec;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Encabezado */
+header {
+  background: #290909;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Creepster', cursive;
+  font-size: 2.5rem;
+  color: #ff2b2b;
+  text-shadow: 0 0 10px #ff2b2b;
+}
+
+header small {
+  display: block;
+  font-size: 1rem;
+  color: #ff6666;
+  margin-top: 0.3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tarjetas de productos */
+.product-card {
+  background: #1e1e1e;
+  border: 2px solid #ff2b2b;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff2b2b;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 5px #ff2b2b);
+}
+
+.product-info {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #ff4949;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: #ccc;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #ff2b2b;
+  font-size: 1rem;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #290909;
+  color: #ff2b2b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 3rem;
+  box-shadow: inset 0 5px 10px #ff2b2b;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fondo animado */
+.horror-anim-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.horror-character {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  object-fit: contain;
+}
+
+/* Animación de personajes */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.horror-character:nth-child(1) {
+  animation: fadeInOut 16s infinite;
+}
+
+.horror-character:nth-child(2) {
+  animation: fadeInOut 16s infinite 4s;
+}
+
+.horror-character:nth-child(3) {
+  animation: fadeInOut 16s infinite 8s;
+}
+
+.horror-character:nth-child(4) {
+  animation: fadeInOut 16s infinite 12s;
+}
