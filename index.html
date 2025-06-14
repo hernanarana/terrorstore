@@ -2,85 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>TerroStore - Tienda Online de Terror</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TerrorStore - Tienda de Terror</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" />
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <!-- Contenedor de personajes animados -->
-  <div class="horror-anim-container" aria-hidden="true">
-    <img src="https://i.imgur.com/0QGDMmn.png" alt="Freddy Krueger" class="horror-character" />
-    <img src="https://i.imgur.com/A2jbQGd.png" alt="Jason Voorhees" class="horror-character" />
-    <img src="https://i.imgur.com/x2vANdM.png" alt="Pennywise" class="horror-character" />
-    <img src="https://i.imgur.com/pDiYZkN.png" alt="Chucky" class="horror-character" />
+<header>
+  <button id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-lateral">
+    &#9776;
+  </button>
+  <h1>TerrorStore</h1>
+  <button id="btn-carrito-toggle" aria-label="Mostrar carrito">
+    🛒 <span id="carrito-count">0</span>
+  </button>
+</header>
+
+<nav id="menu-lateral">
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Productos</a></li>
+    <li><a href="#">Ofertas</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+
+<main>
+  <section id="productos-container" class="productos-grid"></section>
+</main>
+
+<aside id="carrito-lateral" class="carrito-oculto" aria-label="Carrito de compras">
+  <h2>Tu Carrito</h2>
+  <ul id="carrito-lista" class="carrito-lista"></ul>
+  <p id="total-carrito" class="total-carrito">Total: $0</p>
+  <div class="carrito-buttons">
+    <button id="vaciar-carrito" class="btn btn-danger">Vaciar carrito</button>
+    <button id="finalizar-compra" class="btn btn-primary">Finalizar compra</button>
   </div>
+</aside>
 
-  <!-- Encabezado -->
-  <header>
-    <h1>TerroStore</h1>
-    <small>Tu tienda online de artículos y películas de terror</small>
-  </header>
+<footer>
+  <p>© 2025 TerrorStore | Hecho con ❤️ por Hernán Arana</p>
+</footer>
 
-  <!-- Contenido principal -->
-  <main>
-    <article class="product-card">
-      <img class="product-image" src="https://i.imgur.com/fH9kI1h.jpg" alt="Gorra de la película Halloween" />
-      <div class="product-info">
-        <div class="product-name">Gorra Halloween</div>
-        <div class="product-description">Gorra oficial con el logo de la película "Halloween".</div>
-        <div class="product-price">$15.000</div>
-      </div>
-    </article>
-    <article class="product-card">
-      <img class="product-image" src="https://i.imgur.com/3sJ1QXt.jpg" alt="Remera Freddy Krueger" />
-      <div class="product-info">
-        <div class="product-name">Remera Freddy Krueger</div>
-        <div class="product-description">Remera roja y verde con diseño icónico de Freddy Krueger.</div>
-        <div class="product-price">$22.000</div>
-      </div>
-    </article>
-    <article class="product-card">
-      <img class="product-image" src="https://i.imgur.com/UX8r5N2.jpg" alt="Póster IT" />
-      <div class="product-info">
-        <div class="product-name">Póster IT</div>
-        <div class="product-description">Póster de alta calidad de la película "IT" para decorar tu espacio.</div>
-        <div class="product-price">$8.500</div>
-      </div>
-    </article>
-    <article class="product-card">
-      <img class="product-image" src="https://i.imgur.com/39qcChW.jpg" alt="Set de películas clásicas de terror" />
-      <div class="product-info">
-        <div class="product-name">Set Películas Clásicas</div>
-        <div class="product-description">Pack con películas clásicas de terror en formato DVD.</div>
-        <div class="product-price">$35.000</div>
-      </div>
-    </article>
-  </main>
-
-  <!-- Pie de página -->
-  <footer>
-    &copy; 2025 TerroStore - Todos los derechos reservados
-  </footer>
-
-  <!-- Script para animación de personajes -->
-  <script>
-    const characters = document.querySelectorAll('.horror-character');
-    let currentIndex = 0;
-
-    function showNextCharacter() {
-      characters[currentIndex].style.opacity = 0; // Ocultar personaje actual
-      currentIndex = (currentIndex + 1) % characters.length; // Siguiente personaje
-      characters[currentIndex].style.opacity = 1; // Mostrar siguiente personaje
-    }
-
-    // Mostrar inicialmente el primer personaje
-    characters[currentIndex].style.opacity = 1;
-
-    // Cambiar de personaje cada 4 segundos
-    setInterval(showNextCharacter, 4000);
-  </script>
-
-  <script src="main.js"></script>
+<script src="./main.js"></script>
 </body>
 </html>

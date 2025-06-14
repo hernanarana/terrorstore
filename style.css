@@ -1,158 +1,719 @@
-/* Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
-/* Estilos generales */
+
+
+* {
+
+ box-sizing: border-box;
+
+}
+
+
+
 body {
-  margin: 0;
-  background: #121212;
-  color: #ececec;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-  position: relative;
+
+ margin: 0;
+
+ background: #121212;
+
+ color: #ececec;
+
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+ overflow-x: hidden; /* Esto es importante para evitar scroll horizontal al ocultar el menú */
+
+ position: relative;
+
+ min-height: 100vh;
+
+ display: flex;
+
+ flex-direction: column;
+
 }
 
-/* Encabezado */
-header {
-  background: #290909;
-  padding: 1rem;
-  text-align: center;
-  font-family: 'Creepster', cursive;
-  font-size: 2.5rem;
-  color: #ff2b2b;
-  text-shadow: 0 0 10px #ff2b2b;
-}
 
-header small {
-  display: block;
-  font-size: 1rem;
-  color: #ff6666;
-  margin-top: 0.3rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-/* Contenedor principal */
 main {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  position: relative;
-  z-index: 1;
+
+ flex-grow: 1;
+
+ padding: 1rem 2rem;
+
 }
 
-/* Tarjetas de productos */
-.product-card {
-  background: #1e1e1e;
-  border: 2px solid #ff2b2b;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
+
+
+/* --- HEADER Y NAVEGACIÓN PRINCIPAL --- */
+
+header {
+
+ display: flex;
+ align-items: center;
+
+ justify-content: center; /* para centrar el título */
+
+ position: relative; /* para posicionar botones */
+
+ padding: 1rem 2rem;
+
+ background-color: #121212;
+
+ border-bottom: 2px solid #ff2b2b;
+
+ color: #ff2b2b;
+
+ user-select: none;
+
+ z-index: 1100; /* Asegura que el header esté por encima de otros elementos */
+
 }
+
+
+
+header h1 {
+
+ margin: 0;
+
+ font-family: 'Creepster', cursive;
+
+ font-size: 2rem;
+
+ position: absolute;
+
+ left: 50%;
+
+ transform: translateX(-50%);
+
+ pointer-events: none; 
+}
+
+
+
+/* --- ESTILOS DEL BOTÓN DE MENÚ HAMBURGUESA --- */
+
+#btn-menu {
+
+ position: absolute;
+
+ left: 1rem;
+
+ font-size: 2rem;
+
+ background: none;
+
+ border: none;
+
+ color: #ff2b2b;
+
+ cursor: pointer;
+
+ user-select: none;
+
+ z-index: 1001; 
+
+}
+
+
+
+/* --- ESTILOS DEL BOTÓN DE CARRITO --- */
+
+#btn-carrito-toggle {
+
+ position: absolute;
+
+ right: 1rem;
+
+ font-size: 1.6rem;
+
+ background: none;
+
+ border: none;
+
+ color: #ff2b2b;
+
+ cursor: pointer;
+
+ user-select: none;
+
+ display: flex;
+
+ align-items: center;
+
+ gap: 0.3rem;
+
+ z-index: 1001; 
+
+}
+
+
+
+#carrito-count {
+
+ background: #121212;
+
+ color: #ff2b2b;
+
+ font-weight: bold;
+
+ font-size: 1rem;
+
+ border-radius: 50%;
+
+ padding: 0 7px;
+
+ margin-left: 0.4rem;
+
+ position: absolute; 
+
+ top: 5px;
+
+ right: 5px;
+
+}
+
+
+
+/* --- MENÚ LATERAL (HAMBURGUESA) --- */
+
+#menu-lateral {
+
+ position: fixed;
+
+ top: 0;
+
+ left: 0;
+
+ width: 220px;
+
+ height: 100vh;
+
+ background-color: #121212;
+
+ border-right: 2px solid #ff2b2b;
+
+ padding-top: 4rem; /* Deja espacio para el header */
+
+ transform: translateX(-100%); /* Oculto por defecto */
+
+ transition: transform 0.3s ease;
+
+ z-index: 1000; 
+
+}
+
+
+
+
+
+#menu-lateral.menu-visible {
+
+ transform: translateX(0); 
+
+}
+
+
+
+#menu-lateral ul {
+
+ list-style: none;
+
+ padding: 0;
+
+ margin: 0;
+
+}
+
+
+
+#menu-lateral ul li {
+
+ margin: 1rem 0;
+
+ text-align: center;
+
+}
+
+
+
+#menu-lateral ul li a {
+
+ color: #ff2b2b;
+
+ text-decoration: none;
+
+ font-weight: 600;
+
+ font-size: 1.1rem;
+
+ transition: color 0.3s ease;
+
+}
+
+
+
+#menu-lateral ul li a:hover,
+
+#menu-lateral ul li a:focus {
+
+ color: #fff;
+
+ outline: none;
+
+}
+
+
+
+/* --- SECCIÓN DE PRODUCTOS --- */
+
+.productos-grid {
+
+ display: grid;
+
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+ gap: 1.5rem;
+
+}
+
+
+
+.product-card {
+
+ background: #1e1e1e;
+
+ border: 2px solid #ff2b2b;
+ border-radius: 12px;
+
+ overflow: hidden;
+
+ display: flex;
+
+ flex-direction: column;
+
+ box-shadow: 0 0 10px #ff2b2b33;
+
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+ cursor: pointer;
+
+}
+
+
 
 .product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ff2b2b;
+
+ transform: scale(1.05);
+
+ box-shadow: 0 0 20px #ff2b2bcc;
+
 }
+
+
 
 .product-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  filter: drop-shadow(0 0 5px #ff2b2b);
+
+ width: 100%;
+
+ height: 180px;
+
+ object-fit: cover;
+
+ filter: drop-shadow(0 0 5px #ff2b2b);
+
+ border-bottom: 1px solid #ff2b2b;
+
+ transition: transform 0.3s ease;
+
 }
+
+
+
+.product-card:hover .product-image {
+
+ transform: scale(1.1);
+
+}
+
+
 
 .product-info {
-  padding: 1rem;
-  flex-grow: 1;
+
+ padding: 1rem;
+
+ flex-grow: 1;
+
+ display: flex;
+
+ flex-direction: column;
+
 }
+
+
 
 .product-name {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #ff4949;
+
+ font-weight: 900;
+
+ font-size: 1.3rem;
+
+ margin-bottom: 0.4rem;
+
+ color: #ff4949;
+
+ text-shadow: 0 0 3px #ff2b2b;
+
 }
+
+
 
 .product-description {
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-  color: #ccc;
+
+ font-size: 0.95rem;
+
+ margin-bottom: 0.8rem;
+
+ color: #ccc;
+
+ flex-grow: 1;
+
 }
+
+
 
 .product-price {
-  font-weight: bold;
-  color: #ff2b2b;
-  font-size: 1rem;
+
+ font-weight: bold;
+
+ color: #ff2b2b;
+
+ font-size: 1.1rem;
+
+ margin-bottom: 1rem;
+
 }
 
-/* Pie de página */
+
+
+.product-button {
+
+ padding: 0.6rem 0;
+
+ background-color: #ff2b2b;
+
+ border: none;
+
+ border-radius: 8px;
+
+ color: #121212;
+
+ font-weight: 700;
+
+ cursor: pointer;
+
+ transition: background-color 0.3s ease;
+
+ user-select: none;
+
+}
+
+
+
+.product-button:hover {
+
+ background-color: #ff4949;
+
+}
+
+
+
+/* --- CARRITO LATERAL --- */
+
+#carrito-lateral {
+
+ position: fixed;
+
+ top: 70px; /* Debajo del header */
+
+ right: 0;
+
+ width: 320px;
+
+ height: 80vh; 
+ background-color: #1e1e1e;
+
+ border-left: 3px solid #ff2b2b;
+
+ padding: 1.5rem;
+
+ box-shadow: -3px 0 8px #ff2b2b88;
+
+ overflow-y: auto;
+
+ transition: transform 0.3s ease;
+
+ z-index: 1200; 
+
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+ color: #ececec;
+
+ display: flex;
+
+ flex-direction: column;
+
+}
+
+
+
+.carrito-oculto {
+
+ transform: translateX(100%); /* Oculta el carrito por defecto */
+
+}
+
+
+
+/* --- LISTA DEL CARRITO --- */
+
+.carrito-lista {
+
+ list-style: none;
+
+ padding: 0;
+
+ margin: 0 0 1rem 0;
+
+ flex-grow: 1;
+
+ overflow-y: auto;
+
+}
+
+
+
+.carrito-item {
+
+ display: flex;
+
+ align-items: center;
+
+ gap: 0.7rem;
+
+ margin-bottom: 1rem;
+
+ border-bottom: 1px solid #ff2b2b33;
+
+ padding-bottom: 0.6rem;
+
+}
+
+
+
+.carrito-thumb {
+
+ width: 50px;
+
+ height: 50px;
+
+ object-fit: cover;
+
+ border-radius: 5px;
+
+ box-shadow: 0 0 5px #ff2b2b88;
+
+}
+
+
+
+.carrito-item-info {
+
+ flex-grow: 1;
+
+}
+
+
+
+.carrito-item-info strong {
+
+ color: #ff4949;
+
+ font-weight: 700;
+
+}
+
+
+
+.carrito-item-info p {
+
+ margin: 3px 0 0 0;
+
+ font-size: 0.9rem;
+
+ color: #ccc;
+
+}
+
+
+
+.carrito-buttons {
+
+ display: flex;
+
+ gap: 1rem;
+
+ justify-content: center;
+
+ margin-top: 0.5rem;
+
+}
+
+
+
+.btn {
+
+ padding: 0.7rem 1.3rem;
+
+ font-weight: 600;
+
+ border-radius: 8px;
+
+ border: none;
+
+ cursor: pointer;
+
+ user-select: none;
+
+}
+
+
+
+.btn-danger {
+
+ background-color: #a10000;
+
+ color: #fff;
+
+ transition: background-color 0.3s ease;
+
+}
+
+
+
+.btn-danger:hover {
+
+ background-color: #ff2b2b;
+
+}
+
+
+
+.btn-primary {
+
+ background-color: #ff2b2b;
+
+ color: #121212;
+
+ transition: background-color 0.3s ease;
+
+}
+
+
+
+.btn-primary:hover {
+
+ background-color: #ff4949;
+
+}
+
+
+
+.total-carrito {
+
+ font-size: 1.2rem;
+
+ font-weight: 700;
+
+ text-align: center;
+
+ margin-bottom: 0.8rem;
+
+ color: #ff2b2b;
+
+}
+
+
+
+/* --- FOOTER --- */
+
 footer {
-  text-align: center;
-  padding: 1rem;
-  background: #290909;
-  color: #ff2b2b;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 3rem;
-  box-shadow: inset 0 5px 10px #ff2b2b;
-  position: relative;
-  z-index: 1;
+
+ text-align: center;
+
+ padding: 1rem 2rem;
+
+ background-color: #121212;
+
+ border-top: 2px solid #ff2b2b;
+
+ font-size: 0.9rem;
+
+ color: #777;
+
+ user-select: none;
+
+ margin-top: auto; 
+
 }
 
-/* Fondo animado */
-.horror-anim-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
+
+
+/* --- SCROLLBAR PARA CARRITO --- */
+
+#carrito-lateral::-webkit-scrollbar {
+
+ width: 8px;
+
 }
 
-.horror-character {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  object-fit: contain;
+
+
+#carrito-lateral::-webkit-scrollbar-thumb {
+
+ background-color: #ff2b2baa;
+
+ border-radius: 20px;
+
 }
 
-/* Animación de personajes */
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
-.horror-character:nth-child(1) {
-  animation: fadeInOut 16s infinite;
-}
 
-.horror-character:nth-child(2) {
-  animation: fadeInOut 16s infinite 4s;
-}
+/* --- MEDIA QUERIES --- */
 
-.horror-character:nth-child(3) {
-  animation: fadeInOut 16s infinite 8s;
-}
+@media (max-width: 600px) {
 
-.horror-character:nth-child(4) {
-  animation: fadeInOut 16s infinite 12s;
+ #carrito-lateral {
+
+ width: 100%;
+
+ height: 50vh;
+
+ top: auto;
+
+ bottom: 0;
+
+ border-left: none;
+
+ border-top: 3px solid #ff2b2b;
+
+ }
+
+
+
+ main {
+
+ padding-bottom: 60vh; /* Ajuste para dejar espacio al carrito en móvil */
+
+ }
+
 }
