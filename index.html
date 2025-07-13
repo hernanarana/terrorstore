@@ -3,52 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TerrorStore - Tienda de Terror</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" />
-  <!-- SweetAlert2 -->
+  <title>TerrorStore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
 </head>
 <body>
-<header>
-  <button id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-lateral">
-    &#9776;
-  </button>
-  <h1>TerrorStore</h1>
-  <button id="btn-carrito-toggle" aria-label="Mostrar carrito">
-    🛒 <span id="carrito-count">0</span>
-  </button>
-</header>
 
-<nav id="menu-lateral">
-  <ul>
-    <li><a href="#">Inicio</a></li>
-    <li><a href="#">Productos</a></li>
-    <li><a href="#">Ofertas</a></li>
-    <li><a href="#">Contacto</a></li>
-  </ul>
-</nav>
+  <header>
+    <button id="btn-menu" aria-label="Menú">&#9776;</button>
+    <span class="titulo-sangriento">TerrorStore</span>
+    <button id="btn-carrito-toggle" aria-label="Carrito">🛒 <span id="carrito-count">0</span></button>
+  </header>
 
+  <nav id="menu-lateral" class="">
+    <button id="cerrar-menu" class="cerrar-btn">❌</button>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
 
-<main>
-  <section id="productos-container" class="productos-grid"></section>
-</main>
+  <main>
+    <section id="productos-container" class="productos-grid"></section>
+  </main>
 
-<aside id="carrito-lateral" class="carrito-oculto" aria-label="Carrito de compras">
-  <h2>Tu Carrito</h2>
-  <ul id="carrito-lista" class="carrito-lista"></ul>
-  <p id="total-carrito" class="total-carrito">Total: $0</p>
-  <div class="carrito-buttons">
-    <button id="vaciar-carrito" class="btn btn-danger">Vaciar carrito</button>
-    <button id="finalizar-compra" class="btn btn-primary">Finalizar compra</button>
-  </div>
-</aside>
+  <aside id="carrito-lateral" class="carrito-oculto">
+    <button id="cerrar-carrito" class="cerrar-btn">❌</button>
+    <h2>Tu Carrito</h2>
+    <ul id="carrito-lista" class="carrito-lista"></ul>
+    <p id="total-carrito" class="total-carrito">Total: $0</p>
 
-<footer>
-  <p>© 2025 TerrorStore | Hecho con ❤️ por Hernán Arana</p>
-</footer>
+    <section class="form-cliente">
+      <h3>Datos del comprador</h3>
+      <form id="formulario">
+        <input type="text" id="nombre" placeholder="Nombre completo" required>
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <input type="text" id="direccion" placeholder="Dirección" required>
+        <input type="tel" id="telefono" placeholder="Teléfono" required>
+        <button type="submit" class="btn btn-primary">Enviar pedido</button>
+      </form>
+    </section>
 
-<script src="./main.js"></script>
+    <div class="carrito-buttons">
+      <button id="vaciar-carrito" class="btn btn-danger">Vaciar carrito</button>
+      <button id="finalizar-compra" class="btn btn-primary">Finalizar compra</button>
+    </div>
+  </aside>
+
+  <footer>
+    <p>© 2025 TerrorStore | Hecho por Hernán Arana</p>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
