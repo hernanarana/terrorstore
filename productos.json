@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "nombre": "Figura Freddy Krueger",
+    "descripcion": "Figura coleccionable de alta calidad de Freddy Krueger.",
+    "precio": 2500,
+    "imagen": "img/muneco-de-fredi.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Póster Halloween",
+    "descripcion": "Póster oficial de la película Halloween en tamaño A2.",
+    "precio": 1200,
+    "imagen": "img/poster halloween.webp"
+  },
+  {
+    "id": 3,
+    "nombre": "Blu-ray Pesadilla en Elm Street",
+    "descripcion": "Edición especial en Blu-ray de Pesadilla en Elm Street.",
+    "precio": 3500,
+    "imagen": "img/fredi dvd.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Camiseta Chucky",
+    "descripcion": "Camiseta oficial con estampado de Chucky.",
+    "precio": 1800,
+    "imagen": "img/remera chuky.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Máscara Jason Voorhees",
+    "descripcion": "Máscara icónica de Jason Voorhees para coleccionistas.",
+    "precio": 3200,
+    "imagen": "img/mascara.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Libro de cuentos de terror",
+    "descripcion": "Antología con las mejores historias de terror clásicas.",
+    "precio": 1500,
+    "imagen": "img/cuentos de terror.webp"
+  },
+  {
+    "id": 7,
+    "nombre": "Funko Pop Pennywise",
+    "descripcion": "Figura Funko Pop de Pennywise.",
+    "precio": 2200,
+    "imagen": "img/funko nu[evo.jpeg"
+  },
+  {
+    "id": 8,
+    "nombre": "Set de velas temáticas",
+    "descripcion": "Velas decorativas con aroma oscuro.",
+    "precio": 900,
+    "imagen": "img/velas.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "DVD El Exorcista",
+    "descripcion": "Película clásica El Exorcista en DVD.",
+    "precio": 1300,
+    "imagen": "img/exorcista dvd.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Buzo Hellraiser",
+    "descripcion": "Buzo con diseño Hellraiser.",
+    "precio": 2700,
+    "imagen": "img/hellraiser-sweatshirtwfdlq.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Póster It",
+    "descripcion": "Póster oficial de la película It.",
+    "precio": 1100,
+    "imagen": "img/poster de it.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Llaveros terror",
+    "descripcion": "Pack de 5 llaveros de personajes.",
+    "precio": 800,
+    "imagen": "img/llaveros.webp"
+  },
+  {
+    "id": 13,
+    "nombre": "Disfraz La monja",
+    "descripcion": "Disfraz todos los talles. Perfecta para tus noches de terror.",
+    "precio": 3800,
+    "imagen": "img/disfraz de la monja.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Colección Stephen King",
+    "descripcion": "Colección completa de los libros del maestro del terror.",
+    "precio": 22000,
+    "imagen": "img/libros king.webp"
+  },
+  {
+    "id": 15,
+    "nombre": "Annabelle",
+    "descripcion": "La muñeca réplica de la película.",
+    "precio": 1900,
+    "imagen": "img/muneca-annabelle.jpg"
+  }
+]

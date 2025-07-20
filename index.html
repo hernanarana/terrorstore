@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+  <script defer src="main.js"></script>
 </head>
 <body>
 
@@ -37,26 +38,44 @@
     <ul id="carrito-lista" class="carrito-lista"></ul>
     <p id="total-carrito" class="total-carrito">Total: $0</p>
 
-    <section class="form-cliente">
-      <h3>Datos del comprador</h3>
-      <form id="formulario">
-        <input type="text" id="nombre" placeholder="Nombre completo" required>
-        <input type="email" id="email" placeholder="Correo electrónico" required>
-        <input type="text" id="direccion" placeholder="Dirección" required>
-        <input type="tel" id="telefono" placeholder="Teléfono" required>
-        <button type="submit" class="btn btn-primary">Enviar pedido</button>
-      </form>
-    </section>
-
     <div class="carrito-buttons">
       <button id="vaciar-carrito" class="btn btn-danger">Vaciar carrito</button>
-      <button id="finalizar-compra" class="btn btn-primary">Finalizar compra</button>
+      <button id="confirmar-compra" class="btn btn-primary">Confirmar compra</button>
     </div>
   </aside>
+
+  <section id="checkout-view" class="checkout-oculto">
+    <h2>Datos del comprador</h2>
+    <form id="checkout-form" class="form-cliente">
+      <label>Nombre completo</label>
+      <input type="text" id="nombre" placeholder="Nombre completo" required>
+      <div id="err-nombre" class="error">Ingrese sólo letras y espacios.</div>
+
+      <label>Correo electrónico</label>
+      <input type="email" id="email" placeholder="Correo electrónico" required>
+      <div id="err-email" class="error">Ingrese un email válido.</div>
+
+      <label>Dirección</label>
+      <input type="text" id="direccion" placeholder="Dirección" required>
+      <div id="err-direccion" class="error">Campo obligatorio.</div>
+
+      <label>Teléfono</label>
+      <input type="tel" id="telefono" placeholder="Teléfono" required>
+      <div id="err-telefono" class="error">Ingrese sólo dígitos (7-15).</div>
+
+      <label>Tarjeta (16 dígitos)</label>
+      <input type="text" id="tarjeta" placeholder="Número de tarjeta (16 dígitos)" required>
+      <div id="err-tarjeta" class="error">Debe tener exactamente 16 dígitos.</div>
+
+      <div class="field-group">
+        <button type="button" id="cancelar-checkout" class="btn btn-secondary">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Enviar datos</button>
+      </div>
+    </form>
+  </section>
 
   <footer>
     <p>© 2025 TerrorStore | Hecho por Hernán Arana</p>
   </footer>
-  <script src="main.js"></script>
 </body>
 </html>
